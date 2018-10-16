@@ -1,0 +1,116 @@
+/**
+ * Variables
+ */
+
+// Colors
+$color-primary: #000000 !default;
+$color-secondary: #81b3d2 !default;
+
+$text-color: $color-primary !default;
+
+$bg-body: #ffffff !default;
+
+$link-color: $color-primary !default;
+$link-color--hover: rgba($color-secondary, 0.7) !default;
+$link-color--down: rgba($color-secondary, 0.3) !default;
+$active-link-color: #766357 !default;
+$active-link-color--hover: darken($active-link-color, 30%) !default;
+$active-link-color--down: rgba($active-link-color, 0.3) !default;
+
+// Typography
+$font-size: 1.4rem !default;
+$leading: 1.5 !default;
+
+$font-family--sans-serif: 'PT Sans', Verdana, Tahoma, 'Helvetica Neue',
+  Helvetica, Arial, sans-serif;
+$font-family--serif: Georgia, 'Times New Roman', Times, serif;
+$font-family--monospace: 'Courier New', Menlo, Monaco, Consolas,
+  'Liberation Mono', monospace;
+
+$font-family: $font-family--sans-serif !default;
+
+// Media query ranges
+$mobile: 'only screen and (max-width: 767px)';
+$tablet: 'only screen and (min-width: 768px) and (max-width: 1279px)';
+$desktop: 'only screen and (min-width: 1280px)';
+
+$portable: 'only screen and (max-width: 1279px)';
+
+$tab-desk: 'only screen and (min-width: 768px)';
+
+// Container sizes
+$container--min: 320px !default;
+$container--mid: 768px !default;
+$container--max: 1280px !default;
+
+// Paddings and margins
+$offset--mobile: 20px !default;
+$offset--tablet: 50px !default;
+$offset--desktop: 40px !default;
+
+/**
+ * Mixins
+ */
+
+// Set element size
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+// Set margin-left / margin-right
+@mixin margin-x($margin) {
+  margin-right: $margin;
+  margin-left: $margin;
+}
+
+// Set margin-top / margin-bottom
+@mixin margin-y($margin) {
+  margin-top: $margin;
+  margin-bottom: $margin;
+}
+
+// Set pading-left / padding-right
+@mixin padding-x($padding) {
+  padding-right: $padding;
+  padding-left: $padding;
+}
+
+// Set padding-top / padding-bottom
+@mixin padding-y($padding) {
+  padding-top: $padding;
+  padding-bottom: $padding;
+}
+
+// Set fixed ontainer
+@mixin container() {
+  margin: 0 auto;
+
+  @include padding-x($offset--mobile);
+  min-width: $container--min;
+  max-width: $container--max;
+
+  @media #{$tablet} {
+    @include padding-x($offset--tablet);
+  }
+
+  @media #{$desktop} {
+    @include padding-x($offset--desktop);
+  }
+}
+
+// Set fluid container
+@mixin container-fluid() {
+  margin: 0 auto;
+  width: 100%;
+}
+
+// Clear default list' styles
+@mixin list-clear() {
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+// http://lostgrid.org/
+@lost flexbox flex;
